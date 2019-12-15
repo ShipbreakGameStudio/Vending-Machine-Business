@@ -46,7 +46,7 @@ public class VendingMachine : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             playerInRange = true;
-            pressE.gameObject.SetActive(true);
+            pressE.gameObject.SetActive(true); 
         }
     }
 

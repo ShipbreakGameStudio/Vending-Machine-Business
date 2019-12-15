@@ -21,7 +21,6 @@ public class DayHandler : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
-
     }
 
     private void Update()
