@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HandOutNewspaperJob
   m_EditorClassIdentifier: 
   jobName: Hand out newspaper
-  moneyReward: 50
+  moneyReward: 3
   timeInDays: 2

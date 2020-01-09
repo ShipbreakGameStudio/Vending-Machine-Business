@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9a6e020c89a374abe95f9b8fea2401, type: 3}
   m_Name: BifiRoll
   m_EditorClassIdentifier: 
-  count: 0
+  count: 12
   maxCount: 12
   costs: 1
   itemName: BifiRoll

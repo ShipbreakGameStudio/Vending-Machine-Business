@@ -12,4 +12,6 @@ public class NPC : ScriptableObject
 
     public Item[] items;
 
+    public Item[] inventory;
+
 }

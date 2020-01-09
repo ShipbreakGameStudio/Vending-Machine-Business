@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MakeGameJob
   m_EditorClassIdentifier: 
   jobName: Make a Game for a Company
-  moneyReward: 150
+  moneyReward: 12
   timeInDays: 7

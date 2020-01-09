@@ -17,9 +17,11 @@ public class Laptop : MonoBehaviour
     public GameObject laptop;
     public GameObject inventory;
     public GameObject jobs;
+    public GameObject vendingShop;
 
     public GameObject openShopButton;
     public GameObject openJobsButton;
+    public GameObject openVendingShopButton;
 
     public Inventory playerInventory;
 
@@ -50,14 +52,18 @@ public class Laptop : MonoBehaviour
                         playerInventory.money -= item.costs;
                     } else
                     {
-                        //Kann nicht kaufen weil inventar voll
+                        /*
+                         * MELDUNG: Kann nicht kaufen weil das Inventar voll ist
+                         */
                     }
                 }
             }
         }
         else
         {
-            // Kann nicht kaufen weil kein Geld
+            /*
+             * MELDUNG: Kann nicht kaufen weil kein Geld!
+             */
         }
     }
 
@@ -74,8 +80,10 @@ public class Laptop : MonoBehaviour
 
                 shop.SetActive(false);
                 jobs.SetActive(false);
+                vendingShop.SetActive(false);
                 openShopButton.gameObject.SetActive(true);
                 openJobsButton.gameObject.SetActive(true);
+                openVendingShopButton.gameObject.SetActive(true);
                 pressE.gameObject.SetActive(false);
                 laptop.SetActive(true);
                 player.currentState = PlayerState.interact;
@@ -123,6 +131,22 @@ public class Laptop : MonoBehaviour
                 player.currentState = PlayerState.walk;
                 pressE.gameObject.SetActive(true);
             }
+            if (vendingShop.activeInHierarchy)
+            {
+                laptop.SetActive(true);
+                openVendingShopButton.gameObject.SetActive(true);
+                if (inventory.activeInHierarchy)
+                {
+                    inventory.SetActive(false);
+                }
+                vendingShop.SetActive(false);
+            }
+            else
+            {
+                laptop.SetActive(false);
+                player.currentState = PlayerState.walk;
+                pressE.gameObject.SetActive(true);
+            }
 
         }
 
@@ -137,6 +161,7 @@ public class Laptop : MonoBehaviour
             inventory.SetActive(true);
             openShopButton.gameObject.SetActive(false);
             openJobsButton.gameObject.SetActive(false);
+            openVendingShopButton.gameObject.SetActive(false);
         }
     }
 
@@ -147,12 +172,38 @@ public class Laptop : MonoBehaviour
             jobs.SetActive(true);
             openJobsButton.gameObject.SetActive(false);
             openShopButton.gameObject.SetActive(false);
+            openVendingShopButton.gameObject.SetActive(false);
+        }
+    }
+    
+    public void OpenVendingShop()
+    {
+        if(!vendingShop.activeInHierarchy)
+        {
+            vendingShop.SetActive(true);
+            openJobsButton.gameObject.SetActive(false);
+            openShopButton.gameObject.SetActive(false);
+            openVendingShopButton.gameObject.SetActive(false);
         }
     }
 
     public void AcceptJob(Job job)
     {
         StartCoroutine(FadeCoroutine(3.5f, job));
+    }
+
+
+    public void BuyVendingMachine(VendingMachine machine)
+    {
+        if(!machine.cash.bought)
+        {
+            if(player.playerInventory.money >= machine.cost)
+            {
+                machine.cash.bought = true;
+                machine.gameObject.SetActive(true);
+                player.playerInventory.money -= machine.cost;
+            }
+        }
     }
 
     IEnumerator FadeCoroutine(float waitTime, Job job)
@@ -173,7 +224,6 @@ public class Laptop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         playerInRange = true;
         pressE.gameObject.SetActive(true);
     }
@@ -183,5 +233,6 @@ public class Laptop : MonoBehaviour
         playerInRange = false;
         pressE.gameObject.SetActive(false);
     }
+
 
 }

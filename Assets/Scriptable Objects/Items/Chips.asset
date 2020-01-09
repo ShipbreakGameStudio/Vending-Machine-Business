@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9a6e020c89a374abe95f9b8fea2401, type: 3}
   m_Name: Chips
   m_EditorClassIdentifier: 
-  count: 8
+  count: 1
   maxCount: 8
   costs: 1
   itemName: Chips

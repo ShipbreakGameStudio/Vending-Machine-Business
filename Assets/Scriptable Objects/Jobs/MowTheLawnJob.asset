@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MowTheLawnJob
   m_EditorClassIdentifier: 
   jobName: Mow the lawn of a neighbour
-  moneyReward: 35
+  moneyReward: 2
   timeInDays: 1

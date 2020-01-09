@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccc55db62d88c4ebc7e3eb050e53bf, type: 3}
   m_Name: NPC
   m_EditorClassIdentifier: 
-  money: 0
-  bagSpace: 0
-  hunger: 0
-  items: []
+  money: 90
+  bagSpace: 1
+  hunger: 230
+  items:
+  - {fileID: 11400000, guid: 9fc52eba368c1e6448d32ef8d8c5719a, type: 2}
+  - {fileID: 11400000, guid: ce924c3c43c5ff44b8bdc8ab1deec97a, type: 2}
+  - {fileID: 11400000, guid: 2082e52f4e6269648a0e5c4a33d07576, type: 2}
+  - {fileID: 11400000, guid: 24814b31a6bd145479763c845ca94f36, type: 2}
+  inventory: []

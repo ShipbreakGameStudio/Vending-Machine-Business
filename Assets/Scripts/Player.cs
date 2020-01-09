@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     public Inventory playerInventory;
 
-    public TextMeshProUGUI coinsText;
+    public TextMeshProUGUI coinsText; 
 
     private void Start()
     {
