@@ -226,6 +226,7 @@ public class Laptop : MonoBehaviour
     {
         playerInRange = true;
         pressE.gameObject.SetActive(true);
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
